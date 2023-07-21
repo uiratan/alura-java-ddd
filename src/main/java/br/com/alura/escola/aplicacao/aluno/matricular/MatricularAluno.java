@@ -11,6 +11,7 @@ public class MatricularAluno {
 		this.repositorio = repositorio;
 	}
 	
+	// Command
 	public void executa(MatricularAlunoDto dados) {
 		Aluno novo = dados.criarAluno();
 		repositorio.matricular(novo);
