@@ -4,8 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import br.com.alura.escola.dominio.PublicadorDeEventos;
 import br.com.alura.escola.dominio.aluno.Aluno;
 import br.com.alura.escola.dominio.aluno.CPF;
+import br.com.alura.escola.dominio.aluno.LogDeAlunoMatriculado;
 import br.com.alura.escola.infra.aluno.RepositorioDeAlunosEmMemoria;
 
 class MatricularAlunoTest {
@@ -14,13 +16,17 @@ class MatricularAlunoTest {
 	void alunoDeveriaSerPersistido() {
 		// mock - mockito
 		RepositorioDeAlunosEmMemoria repositorio = new RepositorioDeAlunosEmMemoria();
-		MatricularAluno useCase = new MatricularAluno(repositorio);
+		
+		MatricularAluno useCase = new MatricularAluno(repositorio, new PublicadorDeEventos());
+		
 		MatricularAlunoDto dados = new MatricularAlunoDto("Uiratan", "649.159.563-34", "uiratan@gmail.com");
-		useCase.executa(dados);		
+
+		useCase.executa(dados);
+		
 		Aluno encontrado = repositorio.buscarPorCPF(new CPF("649.159.563-34"));
 		
 		assertEquals("Uiratan", encontrado.getNome());
-		assertEquals("649.159.563-34", encontrado.getCpf());
+		assertEquals(new CPF("649.159.563-34"), encontrado.getCpf());
 		assertEquals("uiratan@gmail.com", encontrado.getEmail());
 	}
 
