@@ -1,10 +1,10 @@
 package br.com.alura.escola.academico.aplicacao.aluno.matricular;
 
-import br.com.alura.escola.academico.dominio.Evento;
-import br.com.alura.escola.academico.dominio.PublicadorDeEventos;
 import br.com.alura.escola.academico.dominio.aluno.Aluno;
 import br.com.alura.escola.academico.dominio.aluno.AlunoMatriculado;
 import br.com.alura.escola.academico.dominio.aluno.RepositorioDeAlunos;
+import br.com.alura.escola.shared.dominio.evento.Evento;
+import br.com.alura.escola.shared.dominio.evento.PublicadorDeEventos;
 
 // use case
 public class MatricularAluno {

@@ -2,8 +2,8 @@ package br.com.alura.escola.academico.dominio.aluno;
 
 import java.time.LocalDateTime;
 
-import br.com.alura.escola.academico.dominio.Evento;
 import br.com.alura.escola.shared.dominio.CPF;
+import br.com.alura.escola.shared.dominio.evento.Evento;
 
 public class AlunoMatriculado implements Evento {
 
