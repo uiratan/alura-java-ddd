@@ -41,5 +41,5 @@ class TelefoneTest {
 		assertEquals(telefone2.getDdd(), "86");
 		assertEquals(telefone2.getNumero(), "32222222");
 	}
-
+	
 }

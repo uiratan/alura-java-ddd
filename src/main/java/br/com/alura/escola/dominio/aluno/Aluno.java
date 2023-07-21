@@ -3,7 +3,7 @@ package br.com.alura.escola.dominio.aluno;
 import java.util.ArrayList;
 import java.util.List;
 
-// Entity
+// Aggregate Root
 public class Aluno {
 
 	private CPF cpf;
@@ -17,9 +17,12 @@ public class Aluno {
 		this.nome = nome;
 		this.email = email;
 	}
-
 	
 	public void adicionarTelefone(String ddd, String numero) {
+		if (telefones.size() == 2) {
+			throw new CadastroAlunoException("Numero máximo de telefones já atingido!");
+		}
+		
 		this.getTelefones().add(new Telefone(ddd, numero));
 	}
 
